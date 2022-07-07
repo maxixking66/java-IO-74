@@ -7,7 +7,33 @@ import java.util.Scanner;
 
 public class JavaIOTutorialApplication {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        writeObject();
+
+        readObject();
+    }
+
+    private static void readObject() throws IOException, ClassNotFoundException {
+        File file = new File("userFile.txt");
+        FileInputStream fileInputStream = new FileInputStream(file);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        User user = (User) objectInputStream.readObject();
+        System.out.println("after reading from file:" + user);
+        objectInputStream.close();
+        fileInputStream.close();
+    }
+
+    private static void writeObject() throws IOException {
+        File file = new File("userFile.txt");
+        FileOutputStream outputStream = new FileOutputStream(file);
+
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        User user = new User("MAT", "123456");
+        System.out.println(user);
+        objectOutputStream.writeObject(user);
+        objectOutputStream.close();
+        outputStream.close();
     }
 
     private static void writeOnFileWithDifferentTypes() throws IOException {
