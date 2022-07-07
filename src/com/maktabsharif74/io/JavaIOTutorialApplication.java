@@ -8,7 +8,27 @@ import java.util.Scanner;
 public class JavaIOTutorialApplication {
 
     public static void main(String[] args) throws IOException {
+        File file = new File("char-text.txt");
+        System.out.println("char-text.txt length: " + file.length());
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(1234567890);
+        fileWriter.write(1234567890);
+        fileWriter.write(1234567890);
+        fileWriter.write(1234567890);
+        fileWriter.close();
+        System.out.println("char-text.txt length: " + file.length());
 
+
+        File noCharFile = new File("non-char");
+        System.out.println("noCharFile length: " + noCharFile.length());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(noCharFile);
+        fileOutputStream.write(1234567890);
+        fileOutputStream.write(1234567890);
+        fileOutputStream.write(1234567890);
+        fileOutputStream.write(1234567890);
+        fileOutputStream.close();
+        System.out.println("noCharFile length: " + noCharFile.length());
     }
 
     private static void readAndWriteByte() throws IOException {
