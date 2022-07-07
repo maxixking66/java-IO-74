@@ -1,17 +1,23 @@
 package com.maktabsharif74.io;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class JavaIOTutorialApplication {
 
     public static void main(String[] args) throws IOException {
-//        writeOnFile();
+        readFromFileWithScanner();
 
-//        readFileWithFileReader();
+    }
 
+    private static void readFromFileWithScanner() throws FileNotFoundException {
+        File file = new File("test-char.txt");
+
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine());
+        }
+        scanner.close();
     }
 
     private static void readFileWithFileReader() throws IOException {
