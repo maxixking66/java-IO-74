@@ -8,6 +8,9 @@ import java.util.Scanner;
 public class JavaIOTutorialApplication {
 
     public static void main(String[] args) throws IOException {
+    }
+
+    private static void writeOnFileWithDifferentTypes() throws IOException {
         File file = new File("char-text.txt");
         System.out.println("char-text.txt length: " + file.length());
         FileWriter fileWriter = new FileWriter(file);
