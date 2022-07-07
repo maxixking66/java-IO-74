@@ -13,11 +13,11 @@ public class JavaIOTutorialApplication {
     private static void readFromFileWithScanner() throws FileNotFoundException {
         File file = new File("test-char.txt");
 
-        Scanner scanner = new Scanner(file);
-        while (scanner.hasNextLine()) {
-            System.out.println(scanner.nextLine());
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
         }
-        scanner.close();
     }
 
     private static void readFileWithFileReader() throws IOException {
