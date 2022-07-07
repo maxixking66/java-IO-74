@@ -1,13 +1,29 @@
 package com.maktabsharif74.io;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class JavaIOTutorialApplication {
 
     public static void main(String[] args) throws IOException {
-        readFromFileWithScanner();
 
+    }
+
+    private static void readAndWriteByte() throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream("file");
+        fileOutputStream.write(123456789);
+        fileOutputStream.close();
+
+        List<Byte> byteList = new ArrayList<>();
+        FileInputStream fileInputStream = new FileInputStream("file");
+        int byteCode;
+        while (-1 != (byteCode = fileInputStream.read())) {
+            byteList.add((byte) byteCode);
+        }
+        fileInputStream.close();
+        System.out.println(byteList);
     }
 
     private static void readFromFileWithScanner() throws FileNotFoundException {
