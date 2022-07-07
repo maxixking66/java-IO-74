@@ -9,8 +9,8 @@ public class JavaIOTutorialApplication {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        writeObject();
-
+//        writeObject();
+//
         readObject();
     }
 
